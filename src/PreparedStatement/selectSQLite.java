@@ -1,4 +1,4 @@
-package Remake;
+package PreparedStatement;
 
 import java.sql.*;
 
@@ -33,9 +33,9 @@ public class selectSQLite {
                 System.out.println("| " + idAPI + " | " + titulo);
             }
 
-            rs.close();
-            stmt.close();
-            conexion.close();
+			rs.close();
+			stmt.close();
+			conexion.close();
 
         } catch (Exception e){
             System.err.println( e.getClass().getName() + ": " + e.getMessage());
@@ -89,8 +89,8 @@ public class selectSQLite {
             conexion.setAutoCommit(false);
 
             stmt = conexion.createStatement();
-
-            ResultSet rs = stmt.executeQuery( "SELECT * "
+			
+			ResultSet rs = stmt.executeQuery( "SELECT * "
                     + "FROM '" + peliculasTabla + "' as peliculas, '" + actoresTabla +"' as actores "
                     + "WHERE peliculas.ID = actores.ID_PELICULA "
                     + "AND peliculas.ID = " + id);
